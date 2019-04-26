@@ -11,12 +11,12 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new
+    @event = current_user.created_events.build(event_params)
   end
 
   private
 
-  def user_params
+  def event_params
     params.require(:event).permit(:name, :date, :location, :description)
   end
 end
