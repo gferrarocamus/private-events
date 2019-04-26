@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @user = User.new
   end
@@ -7,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:info] = "Welcome!"
+      log_in @user
+      flash[:info] = 'Welcome!'
       redirect_to profile_url
     else
       render 'new'
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(session[:user_id])
   end
 
   private
