@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# AttendancesController
 class AttendancesController < ApplicationController
   def create
     @event = Event.find(params[:id])
