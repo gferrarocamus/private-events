@@ -1,3 +1,12 @@
 <%= @user.name %><br>
 
-<%= link_to 'New Event', new_event_path %>
+<h2>Events</h2>
+
+<% @user.created_events.each do |event| %>
+  <h2><%= link_to event.name, event_path(event.id) %></h2>
+  <p>Created by: <%= event.creator.name %> </p>
+  <p>Date: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.description unless event.description.nil? %></p><br>
+<% end %>
+
