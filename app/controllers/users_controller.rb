@@ -17,7 +17,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(session[:user_id])
+    @user = current_user
+    @previous_events = @user.attended_events.where("date < ?", Time.now)
+    @upcoming_events = @user.attended_events.where("date > ?", Time.now)
   end
 
   private
