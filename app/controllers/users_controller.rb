@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   before_action :logged_in, only: [:show]
 
@@ -18,8 +20,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @previous_events = @user.attended_events.where("date < ?", Time.now)
-    @upcoming_events = @user.attended_events.where("date > ?", Time.now)
+    @previous_events = @user.attended_events.where('date < ?', Time.now.in_time_zone)
+    @upcoming_events = @user.attended_events.where('date > ?', Time.now.in_time_zone)
   end
 
   private
@@ -27,5 +29,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name)
   end
-
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Event < ApplicationRecord
   has_many :attendance, foreign_key: :attended_event_id
   has_many :event_attendees, -> { distinct }, through: :attendance
@@ -7,8 +9,8 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :location, presence: true
 
-  scope :past, -> { where("date < ?", Time.now) }
-  scope :upcoming, -> { where("date > ?", Time.now) }
+  scope :past, -> { where('date < ?', Time.now.in_time_zone) }
+  scope :upcoming, -> { where('date > ?', Time.now.in_time_zone) }
 
   # def self.past
   #   where("date < ?", Time.now)

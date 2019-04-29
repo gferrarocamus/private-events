@@ -1,13 +1,14 @@
-class SessionsController < ApplicationController
-  #before_action logged_in_user, only: [:destroy]
+# frozen_string_literal: true
 
-  def new
-  end
+class SessionsController < ApplicationController
+  # before_action logged_in_user, only: [:destroy]
+
+  def new; end
 
   def create
     @user = User.find_by(session_params)
     log_in @user
-    flash[:success] = "You are now logged in"
+    flash[:success] = 'You are now logged in'
     redirect_to profile_url
   end
 
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
   end
 
   private
+
   def session_params
     params.require(:session).permit(:name)
   end
