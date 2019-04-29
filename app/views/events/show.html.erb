@@ -5,4 +5,4 @@
   <p><%= @event.description unless @event.description.nil? %></p>
   <br>
 
-  <%= link_to "I'm attending!", attending_event_path(@event.id), method: :post %>
+  <%= link_to "I'm attending!", attendance_path(@event.id), method: :post unless user_attending %>

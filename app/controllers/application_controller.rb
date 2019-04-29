@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include EventsHelper
 
   def logged_in
     unless logged_in?
@@ -7,4 +8,5 @@ class ApplicationController < ActionController::Base
       redirect_to signin_url
     end
   end
+
 end
