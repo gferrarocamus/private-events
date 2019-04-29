@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# EventsController
 class EventsController < ApplicationController
   def index
     @past_events = Event.past

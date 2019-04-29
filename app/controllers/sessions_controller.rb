@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
+# SessionsController
 class SessionsController < ApplicationController
-  # before_action logged_in_user, only: [:destroy]
-
   def new; end
 
   def create

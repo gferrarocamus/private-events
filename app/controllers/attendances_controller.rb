@@ -9,10 +9,9 @@ class AttendancesController < ApplicationController
 
     if @attendance.save
       flash[:success] = "You're attending!"
-      redirect_to event_path
     else
       flash[:danger] = 'Try again'
-      redirect_to event_path
     end
+    redirect_to event_path
   end
 end

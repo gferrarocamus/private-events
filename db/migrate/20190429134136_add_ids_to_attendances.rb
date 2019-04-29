@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# AddIdsToAttendances
 class AddIdsToAttendances < ActiveRecord::Migration[5.2]
   def change
     add_column :attendances, :event_attendee_id, :integer

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Event
 class Event < ApplicationRecord
   has_many :attendance, foreign_key: :attended_event_id
   has_many :event_attendees, -> { distinct }, through: :attendance
