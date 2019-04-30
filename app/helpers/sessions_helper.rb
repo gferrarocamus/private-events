@@ -7,7 +7,7 @@ module SessionsHelper
   end
 
   def current_user
-    User.find(session[:user_id])
+    session[:user_id].nil? ? nil : User.find(session[:user_id])
   end
 
   def logged_in?

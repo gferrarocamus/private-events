@@ -1,8 +1,8 @@
 <h1>Browse all events</h1>
 
-<h2>Past events:</h2>
+<h2>Past events</h2>
 <% @past_events.each do |event| %>
-  <h2><%= link_to event.name, event_path(event.id) %></h2>
+  <h3><%= link_to event.name, event_path(event.id) %></h2>
   <p>Created by: <%= event.creator.name %> </p>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>
@@ -11,7 +11,7 @@
 
 <h2>Upcoming events</h2>
 <% @upcoming_events.each do |event| %>
-  <h2><%= link_to event.name, event_path(event.id) %></h2>
+  <h3><%= link_to event.name, event_path(event.id) %></h2>
   <p>Created by: <%= event.creator.name %> </p>
   <p>Date: <%= event.date %></p>
   <p>Location: <%= event.location %></p>

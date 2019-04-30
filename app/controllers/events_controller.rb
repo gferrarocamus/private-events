@@ -2,6 +2,8 @@
 
 # EventsController
 class EventsController < ApplicationController
+  before_action :logged_in, only: %i[new create]
+
   def index
     @past_events = Event.past
     @upcoming_events = Event.upcoming

@@ -2,6 +2,8 @@
 
 # AttendancesController
 class AttendancesController < ApplicationController
+  before_action :logged_in, only: [:create]
+
   def create
     @event = Event.find(params[:id])
     @user = current_user
