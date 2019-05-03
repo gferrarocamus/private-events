@@ -11,13 +11,13 @@
 
   <body>
     <nav>
-      <%= link_to 'Home', root_path %>
+      <%= link_to 'Home', root_path %> |
       <% if logged_in? %>
+        <%= link_to 'New event', new_event_path %> |
+        <%= link_to 'Profile', profile_path %> |
         <%= link_to 'Log out', signout_path, method: :delete %>
-        <%= link_to 'Profile', profile_path %>
-        <%= link_to 'New event', new_event_path %>
       <% else %>
-        <%= link_to 'Sign up', signup_path %>
+        <%= link_to 'Sign up', signup_path %> |
         <%= link_to 'Log in', signin_path %>
       <% end %>
     </nav>
