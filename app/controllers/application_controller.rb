@@ -2,6 +2,10 @@
 
 # ApplicationController
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
+  helper_method :current_user, :logged_in?
+
   def log_in(user)
     session[:user_id] = user.id
   end
@@ -19,9 +23,5 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = 'Please log in.'
     redirect_to signin_url
-  end
-
-  def user_attending
-    @event.event_attendees.exists?(current_user.id)
   end
 end

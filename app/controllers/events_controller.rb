@@ -3,6 +3,7 @@
 # EventsController
 class EventsController < ApplicationController
   before_action :logged_in, only: %i[new create]
+  helper_method :user_attending?
 
   def index
     @past_events = Event.past
@@ -26,6 +27,10 @@ class EventsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def user_attending?
+    @event.event_attendees.exists?(current_user.id)
   end
 
   private
