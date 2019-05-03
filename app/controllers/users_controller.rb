@@ -21,8 +21,10 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @previous_events = @user.attended_events.where('date < ?', Time.now.in_time_zone)
-    @upcoming_events = @user.attended_events.where('date > ?', Time.now.in_time_zone)
+    @attended_past_events = @user.previous_events('attended')
+    @attended_upcoming_events = @user.upcoming_events('attended')
+    @created_past_events = @user.previous_events('created')
+    @created_upcoming_events = @user.upcoming_events('created')
   end
 
   private

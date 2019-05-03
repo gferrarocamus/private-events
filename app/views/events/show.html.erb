@@ -7,10 +7,10 @@
 
 <%= link_to "I'm attending!", attendance_path(@event.id), method: :post unless (current_user.nil? || user_attending) %>
 
-<% if !@event.event_attendees.empty? %>
+<% if !@event_attendees.empty? %>
   <h3>Attendees:</h3>
   <ul>
-  <% @event.event_attendees.each do |attendee| %>
+  <% @event_attendees.each do |attendee| %>
     <li><%= attendee.name %></li>
   <% end %>
   </ul>

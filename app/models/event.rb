@@ -2,7 +2,7 @@
 
 # Event
 class Event < ApplicationRecord
-  has_many :attendance, foreign_key: :attended_event_id, inverse_of: :attendances, dependent: :destroy
+  has_many :attendance, foreign_key: :attended_event_id, dependent: :destroy
   has_many :event_attendees, -> { distinct }, through: :attendance
   belongs_to :creator, class_name: 'User'
 

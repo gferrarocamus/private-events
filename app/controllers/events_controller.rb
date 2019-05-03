@@ -11,10 +11,10 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @event_attendees = @event.event_attendees
   end
 
   def new
-    @user = current_user
     @event = Event.new
   end
 
