@@ -6,12 +6,12 @@ class EventsController < ApplicationController
   helper_method :user_attending?
 
   def index
-    @past_events = Event.past
-    @upcoming_events = Event.upcoming
+    @past_events = Event.past.includes(:creator)
+    @upcoming_events = Event.upcoming.includes(:creator)
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.includes(:creator, :event_attendees).find(params[:id])
     @event_attendees = @event.event_attendees
   end
 

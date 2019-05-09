@@ -5,10 +5,14 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by(session_params)
-    log_in @user
-    flash[:success] = 'You are now logged in'
-    redirect_to profile_url
+    if (@user = User.find_by(session_params))
+      log_in @user
+      flash[:success] = 'You are now logged in'
+      redirect_to root_path
+    else
+      flash[:warning] = 'Enter a valid username'
+      render 'new'
+    end
   end
 
   def destroy
