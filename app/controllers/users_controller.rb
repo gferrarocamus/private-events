@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       flash[:info] = 'Welcome!'
       redirect_to profile_url
     else
+      flash[:danger] = 'Name can\'t be blank'
       render 'new'
     end
   end
