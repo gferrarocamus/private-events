@@ -11,8 +11,8 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :location, presence: true
 
-  scope :past, -> { where('date < ?', Time.now.in_time_zone) }
-  scope :upcoming, -> { where('date > ?', Time.now.in_time_zone) }
+  scope :past, -> { where('date < ?', Time.now.in_time_zone).order(date: :asc) }
+  scope :upcoming, -> { where('date > ?', Time.now.in_time_zone).order(date: :asc) }
 
   # def self.past
   #   where("date < ?", Time.now)
