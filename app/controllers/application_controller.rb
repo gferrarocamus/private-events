@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !session[:user_id].nil?
+    !session[:user_id].nil? && User.exists?(id: session[:user_id])
   end
 
   def logged_in
