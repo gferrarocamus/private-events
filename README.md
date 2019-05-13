@@ -1,24 +1,25 @@
-# README
+# private-events
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is a simple site built with Ruby on Rails where users can sign up, log in, create and attend events, inspired by Eventbrite according to the requirements of [the associations project](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations) from The Odin Project curriculum.
 
-Things you may want to cover:
+## Table of Contents
 
-* Ruby version
+- [Usage](#usage)
+- [Maintainers](#maintainers)
+- [License](#license)
 
-* System dependencies
+## Usage
 
-* Configuration
+In order to run the site, you need to have [Ruby on Rails](https://guides.rubyonrails.org/v5.0/getting_started.html#installing-rails) installed. Then you can clone this repository and fire up the server with
+```
+$ rails server
+```
 
-* Database creation
+## Maintainers
 
-* Database initialization
+[@gferrarocamus](https://github.com/gferrarocamus) [@jeton-th](https://github.com/jeton-th)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
-
-* ...
+MIT license © 2019 @gferrarocamus @jeton-th

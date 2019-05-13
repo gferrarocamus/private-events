@@ -1,0 +1,7 @@
+<% events.each do |event| %>
+  <h3><%= link_to event.name, event_path(event.id) %></h2>
+  <p>Created by: <%= event.creator.name %> </p>
+  <p>Date: <%= event.date.strftime("%d/%m/%Y") %></p>
+  <p>Location: <%= event.location %></p>
+  <p><%= event.description unless event.description.nil? %></p><br>
+<% end %>

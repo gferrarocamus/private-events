@@ -1,0 +1,19 @@
+<h1><%= @event.name %></h1>
+<p>Created by: <%= @event.creator.name %> </p>
+<p>Date: <%= @event.date %></p>
+<p>Location: <%= @event.location %></p>
+<p><%= @event.description unless @event.description.nil? %></p>
+<br>
+
+<%= link_to "I'm attending!", attending_path(@event.id), method: :post unless (current_user.nil? || user_attending?) %>
+  
+<h3>Attendees:</h3>
+<% if @event_attendees.empty? %>
+  <p>No one yet!</p>
+<% else %>  
+  <ul>
+  <% @event_attendees.each do |attendee| %>
+    <li><%= attendee.name %></li>
+  <% end %>
+  </ul>
+<% end %>
